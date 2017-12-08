@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from pythonfi_web.website.views import hola, manager_example
+from pythonfi_web.website.views import hola, manager_example, model_method
 
 urlpatterns = [
     url(
@@ -12,5 +12,11 @@ urlpatterns = [
         regex=r'^manager$',
         view=manager_example,
         name='manager'
+    ),
+
+    url(
+        regex=r'^model$',
+        view=model_method,
+        name='modelmethod'
     ),
 ]

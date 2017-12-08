@@ -12,3 +12,7 @@ class ModelTest(models.Model):
 
     def __str__(self):
         return self.nametest
+
+
+    def id_record(self):
+        return self.id
