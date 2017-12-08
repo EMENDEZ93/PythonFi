@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>listview</title>
+</head>
+<body>
+
+{% load tags %}
+
+{% if object_list %}
+    <ul>
+    {% for editores  in object_list %}
+        <h2>{{ editores }}</h2>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No hay editores registrados.</p>
+{% endif %}
+
+</body>
+</html>

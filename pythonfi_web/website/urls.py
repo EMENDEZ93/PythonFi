@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from pythonfi_web.website.views import hola, manager_example, model_method
+from pythonfi_web.website.views import hola, manager_example, model_method, listview_example
 
 urlpatterns = [
     url(
@@ -18,5 +18,11 @@ urlpatterns = [
         regex=r'^model$',
         view=model_method,
         name='modelmethod'
+    ),
+
+    url(
+        regex=r'^listview$',
+        view=listview_example.as_view(),
+        name='listview'
     ),
 ]
