@@ -1,5 +1,6 @@
+from django.contrib.auth import views as auth_views
 from django.conf.urls import url
-from pythonfi_web.website.views import hola, manager_example, model_method, listview_example
+from pythonfi_web.website.views import hola, manager_example, model_method, listview_example, authentication, hello
 
 urlpatterns = [
     url(
@@ -25,4 +26,18 @@ urlpatterns = [
         view=listview_example.as_view(),
         name='listview'
     ),
+
+    url(
+        regex=r'^login$',
+        view=authentication,
+        name='login'
+    ),
+
+    url(
+        regex=r'^respond$',
+        view=hello,
+        name='hello'
+    ),
+
+    url(r'^logout$',auth_views.logout, {'next_page' : '/respond'} , name='logout'),
 ]

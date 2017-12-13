@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.db import models
 
 
@@ -8,7 +9,7 @@ class ManagerNewMethod(models.Manager):
 class ModelTest(models.Model):
     nametest = models.CharField(max_length=30)
     objects = ManagerNewMethod()
-
+    imagen = models.ImageField(blank=True)
 
     def __str__(self):
         return self.nametest
@@ -16,3 +17,5 @@ class ModelTest(models.Model):
 
     def id_record(self):
         return self.id
+
+    #class Meta:
