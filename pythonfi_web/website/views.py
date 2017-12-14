@@ -5,6 +5,9 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+
 
 def authentication(request):
     co = {}
@@ -57,3 +60,5 @@ def model_method(request, template_name='model_metho.html'):
 
 class listview_example(ListView):
     model = ModelTest
+
+

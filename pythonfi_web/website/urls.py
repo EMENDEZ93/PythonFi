@@ -2,6 +2,8 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls import url
 from pythonfi_web.website.views import hola, manager_example, model_method, listview_example, authentication, hello
 
+
+
 urlpatterns = [
     url(
         regex=r'^e.g$',
@@ -40,4 +42,7 @@ urlpatterns = [
     ),
 
     url(r'^logout$',auth_views.logout, {'next_page' : '/respond'} , name='logout'),
+
+
+
 ]

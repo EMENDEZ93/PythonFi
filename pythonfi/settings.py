@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pythonfi_web.website',
+    'rest_framework',
 
 ]
 
@@ -75,10 +76,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pythonfi.wsgi.application'
 
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-
 DATABASES = {
-    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fidb',
+        'USER': 'pythonpg',
+        'PASSWORD': 'pythonpg',
+        'HOST': '127.0.0.11',
+        'PORT': '5432',
+
+    }
 }
 
 
@@ -100,6 +107,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10
+}
 
 
 # Internationalization
