@@ -9,6 +9,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 
 
+
 def authentication(request):
     co = {}
 
@@ -56,6 +57,14 @@ def model_method(request, template_name='model_metho.html'):
     data = {}
     data['test']=ModelTest.objects.all()
     return render(request,template_name, data)
+
+
+def index_(request, template_name='website/index_.html'):
+    return render(request,template_name)
+
+
+def admin_(request, template_name='admin/index_.html'):
+    return render(request,template_name)
 
 
 class listview_example(ListView):

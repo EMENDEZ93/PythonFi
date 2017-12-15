@@ -1,10 +1,23 @@
 from django.contrib.auth import views as auth_views
 from django.conf.urls import url
-from pythonfi_web.website.views import hola, manager_example, model_method, listview_example, authentication, hello
+from pythonfi_web.website.views import hola, manager_example, model_method, listview_example, authentication, hello, index_, admin_
 
 
 
 urlpatterns = [
+
+    url(
+        regex=r'^index_$',
+        view=index_,
+        name='index_'
+    ),
+
+    url(
+        regex=r'^admin_$',
+        view=admin_,
+        name='admin_'
+    ),
+
     url(
         regex=r'^e.g$',
         view=hola,
