@@ -63,10 +63,6 @@ def index_(request, template_name='website/index_.html'):
     return render(request,template_name)
 
 
-def admin_(request, template_name='admin/index_.html'):
-    return render(request,template_name)
-
-
 class listview_example(ListView):
     model = ModelTest
 

@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pythonfi_web.website',
     'rest_framework',
-
+    'pythonfi_web.admin_fi',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'pythonfi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/')],
+        'DIRS': [os.path.join(BASE_DIR, 'pythonfi_web/templates').replace('\\','/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,14 +132,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATICFILES_DIRS = [
     str( os.path.join(BASE_DIR, 'pythonfi_web/static') )
-
 ]
 
 
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = 'media'
+MEDIA_ROOT = str( os.path.join(BASE_DIR, 'pythonfi_web/media') )
 MEDIA_URL = '/media/'
 
 

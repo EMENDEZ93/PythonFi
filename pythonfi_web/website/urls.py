@@ -1,7 +1,7 @@
 from django.contrib.auth import views as auth_views
 from django.conf.urls import url
-from pythonfi_web.website.views import hola, manager_example, model_method, listview_example, authentication, hello, index_, admin_
-
+from pythonfi_web.website.views import hola, manager_example, model_method, listview_example, authentication, hello, index_
+from pythonfi_web.admin_fi.views import admin_
 
 
 urlpatterns = [
