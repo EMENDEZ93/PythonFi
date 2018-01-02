@@ -13,12 +13,6 @@ urlpatterns = [
     ),
 
     url(
-        regex=r'^admin_$',
-        view=admin_,
-        name='admin_'
-    ),
-
-    url(
         regex=r'^e.g$',
         view=hola,
         name='e.g'

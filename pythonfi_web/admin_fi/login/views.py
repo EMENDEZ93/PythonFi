@@ -1,5 +1,4 @@
 from django.shortcuts import render
 
-
-def admin_(request, template_name='admin/base.html'):
+def admin_login(request, template_name='admin/login/login.html'):
     return render(request,template_name)
