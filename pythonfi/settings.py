@@ -112,6 +112,16 @@ LOGIN_REDIRECT_URL = 'home'
 SOCIAL_AUTH_GITHUB_KEY = 'e9a05a588ae1ae28a1e4'
 SOCIAL_AUTH_GITHUB_SECRET = '3a2fecba786817ffb14d7c01e959eb4f15eab6e3'
 
+SOCIAL_AUTH_TWITTER_KEY = 'NOZfkj9cFNvvhi2LbdKo2WkHI'
+SOCIAL_AUTH_TWITTER_SECRET = 'nmSWTuXHujBDcDgccRmrUGQwEUapU2RuMAS6zynF6hOh7rahVF'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '179211132813131'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'c4555b8aeecccb9babf968130665d00a'
+
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/settings/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/settings/'
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -150,7 +160,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-AUTH_USER_MODEL = 'admin_fi.User'
+#AUTH_USER_MODEL = 'admin_fi.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
