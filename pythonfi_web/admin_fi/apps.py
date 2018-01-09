@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class AdminFiConfig(AppConfig):
-    name = 'admin_fi'
+    name = 'pythonfi_web.admin_fi'

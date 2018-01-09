@@ -35,10 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pythonfi_web.website',
-    'rest_framework',
-    'pythonfi_web.admin_fi',
 
+    'rest_framework',
+    'pythonfi_web.admin_fi.apps.AdminFiConfig',
+    'pythonfi_web.website.apps.WebsiteConfig',
     'social_django',
 ]
 
@@ -91,7 +91,9 @@ DATABASES = {
         'PASSWORD': 'pythonpg',
         'HOST': '127.0.0.11',
         'PORT': '5432',
-
+        'TEST': {
+            'NAME': 'test_fidb',
+        },
     }
 }
 
@@ -102,6 +104,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
 
     'django.contrib.auth.backends.ModelBackend',
+
 )
 
 LOGIN_URL = 'login'
@@ -122,6 +125,7 @@ SOCIAL_AUTH_LOGIN_ERROR_URL = '/settings/'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/settings/'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
