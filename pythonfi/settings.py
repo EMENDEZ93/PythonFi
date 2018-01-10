@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'pythonfi_web.admin_fi.apps.AdminFiConfig',
     'pythonfi_web.website.apps.WebsiteConfig',
     'social_django',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -91,9 +92,7 @@ DATABASES = {
         'PASSWORD': 'pythonpg',
         'HOST': '127.0.0.11',
         'PORT': '5432',
-        'TEST': {
-            'NAME': 'test_fidb',
-        },
+
     }
 }
 
@@ -110,7 +109,7 @@ AUTHENTICATION_BACKENDS = (
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home'
-
+LOGOUT_REDIRECT_URL = 'home'
 
 SOCIAL_AUTH_GITHUB_KEY = 'e9a05a588ae1ae28a1e4'
 SOCIAL_AUTH_GITHUB_SECRET = '3a2fecba786817ffb14d7c01e959eb4f15eab6e3'

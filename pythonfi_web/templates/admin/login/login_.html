@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Eventually by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--[if lte IE 8]><script src="{% static 'admin/login_fi/assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'admin/login_fi/assets/css/main.css' %}" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'admin/login_fi/assets/css/ie8.css' %}" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'admin/login_fi/assets/css/ie9.css' %}" /><![endif]-->
+	</head>
+	<body>
+
+  		<div class="container">
+  		  <h1 class="text-center logo my-4">
+  		    <a href="{% url 'home' %}">Django Boards</a>
+  		  </h1>
+  		  <div class="row justify-content-center">
+  		    <div class="col-lg-4 col-md-6 col-sm-8">
+  		      <div class="card">
+  		        <div class="card-body">
+  		          <h3 class="card-title">Log in</h3>
+  		          <form method="post" novalidate>
+  		            {% csrf_token %}
+  		            {{ form.as_p }}
+  		            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+  		          </form>
+  		        </div>
+  		        <div class="card-footer text-muted text-center">
+  		          New to Django Boards? <a href="{% url 'signup' %}">Sign up</a>
+  		        </div>
+  		      </div>
+  		      <div class="text-center py-2">
+  		        <small>
+  		          <a href="#" class="text-muted">Forgot your password?</a>
+  		        </small>
+  		      </div>
+  		    </div>
+  		  </div>
+  		</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="{% static 'admin/login_fi/assets/js/ie/respond.min.js' %}"></script><![endif]-->
+			<script src="{% static 'admin/login_fi/assets/js/main.js' %}"></script>
+
+	</body>
+</html>

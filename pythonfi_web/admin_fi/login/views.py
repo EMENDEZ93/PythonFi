@@ -14,6 +14,11 @@ from .tokens import account_activation_token
 from django.contrib.auth.models import User
 
 
+@login_required
+def home(request, template_name='admin/admin_fi/admin_fi.html'):
+    return render(request, template_name)
+
+
 def signup(request, template_name='admin/login/signup.html'):
     data = {}
 
@@ -64,11 +69,6 @@ def activate(request, uidb64, token):
 
 def admin_login(request, template_name='admin/login/login.html'):
     return render(request,template_name)
-
-
-@login_required
-def home(request):
-    return render(request,'admin/login/home.html')
 
 
 @login_required
