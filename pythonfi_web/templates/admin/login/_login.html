@@ -1,18 +1,20 @@
-{% extends 'admin/login/_base.html' %}
+{% extends 'admin/login/_base.html'%}
+
+{% load static %}
 
 {% block body %}
   	<div class="container">
   	  <h1 class="text-center logo my-4">
-  	    <a href="{% url 'home' %}">Django Boards</a>
+  	    <a href="{% url 'home' %}">Facultad de Ingeniería</a>
   	  </h1>
   	  <div class="row justify-content-center">
   	    <div class="col-lg-4 col-md-6 col-sm-8">
   	      <div class="card">
   	        <div class="card-body">
-  	          <h3 class="card-title">Sign Up</h3>
+  	          <h3 class="card-title">Login</h3>
   	          <form method="post" novalidate>
   	            {% csrf_token %}
-  	            {% include 'admin/login/form.html' %}
+  	            {{ form.as_p }}
   	            <button type="submit" class="btn btn-primary btn-block">Log in</button>
   	          </form>
   	        </div>
@@ -29,5 +31,3 @@
   	  </div>
     </div>
 {% endblock %}
-
-
