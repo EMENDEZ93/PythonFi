@@ -1,3 +1,4 @@
+from django.contrib.auth import views as auth_views
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeForm, UserCreationForm
@@ -17,30 +18,39 @@ from django.contrib.auth.models import User
 
 def signup(request, template_name='admin/login/signup.html'):
     data = {}
-
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.is_active = False
-            user.save()
-            current_site = get_current_site(request)
-            subject = 'Activate Your MySite Account'
-            message = render_to_string('admin/login/account_activation_email.html',{
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': account_activation_token.make_token(user),
-            })
-            user.email_user(subject, message)
-            return redirect('account_activation_sent')
+    
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            form = SignUpForm(request.POST)
+            if form.is_valid():
+                user = form.save(commit=False)
+                user.is_active = False
+                user.save()
+                current_site = get_current_site(request)
+                subject = 'Activate Your MySite Account'
+                message = render_to_string('admin/login/account_activation_email.html',{
+                    'user': user,
+                    'domain': current_site.domain,
+                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                    'token': account_activation_token.make_token(user),
+                })
+                user.email_user(subject, message)
+                return redirect('account_activation_sent')
+        else:
+            form = SignUpForm()
     else:
-        form = SignUpForm()
+        return redirect('home')
 
     data['form'] = form
     return render(request, template_name, data)
 
 
+def admin_login(request):
+    if not request.user.is_authenticated:
+        login = auth_views.LoginView.as_view(template_name='admin/login/_login.html')
+        return login(request)
+    else:
+        return redirect('home')
 
 
 @login_required
@@ -74,11 +84,6 @@ def activate(request, uidb64, token):
         return redirect('home')
     else:
         return render(request, 'admin/login/account_activation_invalid.html')
-
-
-
-def admin_login(request, template_name='admin/login/login.html'):
-    return render(request,template_name)
 
 
 @login_required

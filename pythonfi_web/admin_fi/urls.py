@@ -1,6 +1,7 @@
+from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import views as auth_views
 from django.conf.urls import url
-from pythonfi_web.admin_fi.login.views import admin_login, home, setting, password, signup, home_test
+from pythonfi_web.admin_fi.login.views import home, setting, password, signup, home_test, admin_login
 from .login import views as core_views
 
 urlpatterns = [
@@ -12,8 +13,8 @@ urlpatterns = [
     ),
     url(
         regex=r'^login/$',
-        view=auth_views.LoginView.as_view(template_name='admin/login/_login.html'),
-        name='login'
+        view=admin_login,
+        name='login',
     ),
     url(
         regex=r'^logout/$',
@@ -63,33 +64,21 @@ urlpatterns = [
         view=auth_views.PasswordChangeDoneView.as_view(template_name='admin/login/password_change_done.html'),
         name='password_change_done'
     ),
-
-
-
-    url(
-        regex=r'^facultad$',
-        view=admin_login,
-        name='adminfi'
-    ),
-
     url(
         regex=r'^$',
         view=home,
         name='home'
     ),
-
     url(
         regex=r'^test$',
         view=home_test,
         name='home_test'
     ),
-
     url(
         regex=r'^settings$',
         view=setting,
         name='settings'
     ),
-
     url(
         regex=r'^settings/password/$',
         view=password,
