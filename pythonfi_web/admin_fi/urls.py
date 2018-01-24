@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import views as auth_views
 from django.conf.urls import url
-from pythonfi_web.admin_fi.login.views import home, setting, password, signup, home_test, admin_login
+from pythonfi_web.admin_fi.login.views import home, setting, password, signup, admin_login
 from .login import views as core_views
 
 urlpatterns = [
@@ -68,11 +68,6 @@ urlpatterns = [
         regex=r'^$',
         view=home,
         name='home'
-    ),
-    url(
-        regex=r'^test$',
-        view=home_test,
-        name='home_test'
     ),
     url(
         regex=r'^settings$',

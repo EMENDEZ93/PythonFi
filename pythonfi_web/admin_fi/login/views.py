@@ -15,7 +15,6 @@ from .tokens import account_activation_token
 from django.contrib.auth.models import User
 
 
-
 def signup(request, template_name='admin/login/signup.html'):
     data = {}
     
@@ -56,13 +55,6 @@ def admin_login(request):
 @login_required
 def home(request, template_name='admin/admin_fi/admin_fi.html'):
     return render(request, template_name)
-
-
-
-def home_test(request, template_name='admin/admin_fi/admin_test.html'):
-    return render(request, template_name)
-
-
 
 
 def account_activation_sent(request):
