@@ -35,10 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'rest_framework',
     'pythonfi_web.admin_fi.apps.AdminFiConfig',
     'pythonfi_web.website.apps.WebsiteConfig',
+    'pythonfi_web.language.apps.LanguageConfig',
     'social_django',
     'widget_tweaks',
 ]
