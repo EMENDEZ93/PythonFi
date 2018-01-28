@@ -1,0 +1,24 @@
+{% load static %}<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'admin/admin_fi/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+    {% block stylesheet %}{% endblock %}
+  </head>
+  <body>
+    <header>
+      ...
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer>
+      ...
+    </footer>
+      <script src="{% static 'admin/admin_fi/bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'admin/admin_fi/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    {% block javascript %}{% endblock %}
+  </body>
+</html>
