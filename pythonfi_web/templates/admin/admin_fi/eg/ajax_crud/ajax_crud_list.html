@@ -1,0 +1,23 @@
+{% for book in language %}
+<tr>
+    <td>{{ book.id }}</td>
+    <td>{{ book.name }}</td>
+    <td>{{ book.description }}</td>
+    <td>
+      <button type="button"
+              class="btn btn-warning btn-sm js-update-book"
+              data-url="{% url 'ajax_crud_update' book.id %}">
+        <span class="glyphicon glyphicon-pencil"></span> Editc
+      </button>
+      <button type="button"
+              class="btn btn-danger btn-sm js-delete-book"
+              data-url="{% url 'ajax_crud_delete' book.id %}">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="8" class="text-center bg-warning">No language</td>
+</tr>
+{% endfor %}
