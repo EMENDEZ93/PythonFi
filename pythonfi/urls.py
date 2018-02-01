@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^', include('pythonfi_web.website.urls')),
     url(r'^', include('pythonfi_web.admin_fi.urls')),
     url(r'^', include('pythonfi_web.language.urls', namespace='photos')),
+    url(r'^', include('pythonfi_web.language.urls')), # it should be drop
 
     #url(r'^login/$', auth_views.login, name='login'),
     #url(r'^logout/$', auth_views.logout, name='logout'),
