@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from pythonfi_web.language.eg.export_excel.views import export_users_csv
+from pythonfi_web.language.eg.export_excel.views import export_users_csv, export_users_xls
 from pythonfi_web.language.eg.views import ajax_crud, ajax_crud_create, ajax_crud_update, ajax_crud_delete
 from pythonfi_web.language.eg.ajax_request.views import SignUpView, validate_username
 from pythonfi_web.language.eg.multiple_file_upload_ajax import views
@@ -46,5 +46,6 @@ urlpatterns = [
     url(r'^drag-and-drop-upload/$', views.DragAndDropUploadView.as_view(), name='drag_and_drop_upload'),
 
     url(r'^export/csv/$', export_users_csv, name='expost_user_csv'),
+    url(r'^export/xls/$', export_users_xls, name='export_users_xls'),
 
 ]
