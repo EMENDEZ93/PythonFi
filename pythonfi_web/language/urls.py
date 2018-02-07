@@ -4,6 +4,12 @@ from pythonfi_web.language.eg.export_excel.views import export_users_csv, export
 from pythonfi_web.language.eg.views import ajax_crud, ajax_crud_create, ajax_crud_update, ajax_crud_delete
 from pythonfi_web.language.eg.ajax_request.views import SignUpView, validate_username
 from pythonfi_web.language.eg.multiple_file_upload_ajax import views
+from pythonfi_web.language.eg.filter_querysets_dynamically.views import search
+
+
+from django_filters.views import FilterView
+from pythonfi_web.language.eg.filter_querysets_dynamically.filters import UserFilter2
+
 
 
 urlpatterns = [
@@ -47,5 +53,10 @@ urlpatterns = [
 
     url(r'^export/csv/$', export_users_csv, name='expost_user_csv'),
     url(r'^export/xls/$', export_users_xls, name='export_users_xls'),
+
+    url(r'^filtro$', search, name='search'),
+
+    url(r'^filtro_class$', FilterView.as_view(filterset_class=UserFilter2,
+        template_name='admin/admin_fi/eg/filter_querysets_dynamically/user_list2.html'), name='search_2'),
 
 ]
