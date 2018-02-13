@@ -1,5 +1,7 @@
 from django.conf.urls import url
 
+from pythonfi_web.language.datagrid.basic.views import basic, basic_update
+
 from pythonfi_web.language.eg.export_excel.views import export_users_csv, export_users_xls
 from pythonfi_web.language.eg.views import ajax_crud, ajax_crud_create, ajax_crud_update, ajax_crud_delete
 from pythonfi_web.language.eg.ajax_request.views import SignUpView, validate_username
@@ -58,5 +60,17 @@ urlpatterns = [
 
     url(r'^filtro_class$', FilterView.as_view(filterset_class=UserFilter2,
         template_name='admin/admin_fi/eg/filter_querysets_dynamically/user_list2.html'), name='search_2'),
+
+    url(
+        regex=r'^basic$',
+        view=basic,
+        name='basic'
+    ),
+
+    url(
+        regex=r'^basic_update$',
+        view=basic_update,
+        name='basic_create'
+    ),
 
 ]
