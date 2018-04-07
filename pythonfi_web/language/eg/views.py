@@ -7,7 +7,7 @@ from pythonfi_web.language.models import Language
 
 
 def ajax_crud(request):
-    language = Language.objects.all()
+    language = Language.objects.all().order_by('id')
     return render(request,'admin/admin_fi/eg/ajax_crud/ajax_crud.html', {'language':language})
 
 
